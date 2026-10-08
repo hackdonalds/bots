@@ -4,7 +4,23 @@ Animated bot avatars for AI agents. Eighteen plush 3D shapes with living faces t
 
 **[Live site](https://hackdonalds.github.io/bots/) · [Playground](https://hackdonalds.github.io/bots/playground/)**
 
+![A parade of bots: a cat in a party hat, a droid in glasses, a clover, a ghost, a mech in headphones, a star with a crown and a sleeping alien](docs/screenshots/hero.png)
+
 A from-scratch, framework-agnostic homage to [bot-avatars](https://libraries.dev/bots) by Jakub Antalik (MIT; the type palette follows it).
+
+## The bots
+
+Eighteen shapes in plush fur (default) or glossy plastic, each with its own colour.
+
+![All eighteen bots in plush fur, idle](docs/screenshots/plush.png)
+
+| Working, in plastic | Sleeping |
+| --- | --- |
+| ![All bots hopping and smiling in glossy plastic on a dark background](docs/screenshots/plastic-dark.png) | ![All bots asleep with closed eyes and floating z's](docs/screenshots/sleeping-dark.png) |
+
+Things to wear: a beanie, party hat, crown, beret, top hat, glasses, shades, headphones and a bow tie.
+
+![Bots wearing each accessory](docs/screenshots/wear.png)
 
 ## Use it
 
@@ -69,6 +85,8 @@ import { BotAvatar } from '@hackdonalds/bots/react';
 `prefers-reduced-motion` shows each state's still pose. All avatars share one animation loop and pause when off screen.
 
 ## Playground
+
+![The playground: a plush cat called Mochi in a party hat and bow tie, with shape and colour controls](docs/screenshots/playground.png)
 
 `/playground/` lets you design a bot (shape, custom outline, colour, face, material, fur, things to wear, motion), turn it round by dragging, copy the code for HTML / JS / React, share a link, download a PNG, save a crew in your browser, and **publish to GitHub Pages**: it downloads a standalone `index.html` with your bot or crew, ready to upload to any repository with Pages turned on.
 
