@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bot Playground</title>
+  <meta name="description" content="Design your own animated bot avatar, save a crew, and publish it to GitHub Pages." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/site.css" />
+  <link rel="stylesheet" href="playground.css" />
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <header class="top">
+    <div class="wrap wide">
+      <a class="brand" href="../"><bot-avatar type="clover" size="32" interactive="false"></bot-avatar> bots</a>
+      <span class="crumb">Playground</span>
+      <nav class="nav">
+        <a class="hide-sm" href="../#usage">Docs</a>
+        <a class="hide-sm" href="https://github.com/hackdonalds/bots">GitHub</a>
+        <button id="theme" type="button" aria-label="Toggle theme">◐</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap wide pg">
+    <section class="stage-col">
+      <div class="stage" id="stage" data-bg="light">
+        <div class="stage-bot" id="stage-bot"></div>
+        <div class="stage-hint" id="hint">Drag to turn · click to poke</div>
+        <div class="stage-bg seg" id="bg-seg" role="group" aria-label="Backdrop">
+          <button data-v="light" aria-pressed="true" title="Light">☀</button>
+          <button data-v="dark" aria-pressed="false" title="Dark">☾</button>
+          <button data-v="grid" aria-pressed="false" title="Grid">▦</button>
+          <button data-v="sunset" aria-pressed="false" title="Gradient">◒</button>
+        </div>
+      </div>
+      <div class="stage-bar">
+        <input id="name" class="name-input" placeholder="Name your bot" maxlength="40" aria-label="Bot name" />
+        <div class="seg" id="state-seg" role="group" aria-label="State">
+          <button data-v="default" aria-pressed="true">Idle</button>
+          <button data-v="working" aria-pressed="false">Working</button>
+          <button data-v="sleeping" aria-pressed="false">Sleeping</button>
+        </div>
+      </div>
+      <div class="stage-actions">
+        <button class="btn small" id="random">🎲 Randomize</button>
+        <button class="btn small" id="reset">Reset</button>
+        <button class="btn small" id="save">＋ Save to crew</button>
+        <button class="btn small" id="share">🔗 Share link</button>
+        <button class="btn small" id="png">⬇ PNG</button>
+      </div>
+
+      <div class="panel code-panel">
+        <div class="panel-head">
+          <h3>Use it</h3>
+          <div class="seg" id="code-seg" role="group" aria-label="Code format">
+            <button data-v="html" aria-pressed="true">HTML</button>
+            <button data-v="js" aria-pressed="false">JS</button>
+            <button data-v="react" aria-pressed="false">React</button>
+          </div>
+        </div>
+        <pre class="code" id="code"></pre>
+        <button class="btn small copy" id="copy">Copy</button>
+      </div>
+    </section>
+
+    <section class="controls-col" id="controls" aria-label="Bot settings"></section>
+  </main>
+
+  <section class="wrap wide crew-wrap">
+    <div class="panel">
+      <div class="panel-head">
+        <h3>Your crew <span class="count" id="crew-count"></span></h3>
+        <div class="crew-actions">
+          <button class="btn small" id="crew-state">All working</button>
+          <button class="btn small primary" id="publish">Publish to GitHub Pages</button>
+        </div>
+      </div>
+      <p class="muted" id="crew-empty">Bots you save live here, in this browser. Save a few, then publish them as a page of your own.</p>
+      <div class="crew" id="crew"></div>
+    </div>
+  </section>
+
+  <dialog id="publish-dialog" class="dialog">
+    <form method="dialog">
+      <h3>Publish to GitHub Pages</h3>
+      <p class="muted">Download a ready-to-host <code>index.html</code> with your bot (or your whole crew). It loads the library from a CDN, so it's the only file you need.</p>
+      <div class="seg" id="publish-seg" role="group" aria-label="What to publish">
+        <button type="button" data-v="bot" aria-pressed="true">This bot</button>
+        <button type="button" data-v="crew" aria-pressed="false">Whole crew</button>
+      </div>
+      <label class="field">Page title <input id="publish-title" placeholder="My bots" /></label>
+      <ol class="steps">
+        <li>Create a new repository on GitHub, e.g. <code>my-bots</code>.</li>
+        <li><b>Add file → Upload files</b> and drop in the downloaded <code>index.html</code>. Commit.</li>
+        <li>Open <b>Settings → Pages</b>, choose <b>Deploy from a branch</b>, branch <code>main</code>, folder <code>/ (root)</code>, and save.</li>
+        <li>In a minute your bots are live at <code>https://&lt;you&gt;.github.io/my-bots/</code>.</li>
+      </ol>
+      <div class="dialog-actions">
+        <button class="btn small" value="cancel">Close</button>
+        <button class="btn small" type="button" id="publish-preview">Preview</button>
+        <button class="btn small primary" type="button" id="publish-download">Download index.html</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "@hackdonalds/bots",
+  "version": "0.1.0",
+  "description": "Animated bot avatars: eighteen plush 3D shapes with living faces, three states, hats and glasses. Plain 2D canvas, no dependencies. Web component, JS API and React wrapper.",
+  "type": "module",
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "types": "src/index.d.ts",
+  "exports": {
+    ".": { "types": "./src/index.d.ts", "default": "./src/index.js" },
+    "./react": { "types": "./src/react.d.ts", "default": "./src/react.js" },
+    "./package.json": "./package.json"
+  },
+  "files": ["src"],
+  "sideEffects": ["./src/index.js"],
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "start": "python3 -m http.server 8000"
+  },
+  "peerDependencies": { "react": ">=17" },
+  "peerDependenciesMeta": { "react": { "optional": true } },
+  "keywords": ["avatar", "bot", "agent", "ai", "animation", "canvas", "web-component", "react", "mascot"],
+  "license": "MIT",
+  "repository": { "type": "git", "url": "git+https://github.com/hackdonalds/bots.git" },
+  "homepage": "https://hackdonalds.github.io/bots/"
+}
